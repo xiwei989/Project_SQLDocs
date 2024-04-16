@@ -110,7 +110,9 @@ select Category
 from (select Category, sum(Quantity) as CategoryQuantity
 		from ORDERSVIEW
         where SellerId=1
-		group by category) t;
+		group by category
+        order by CategoryQuantity desc
+        limit 1) t;
 
 /* 16. For a specific seller(e.g. SellerID=1), find the id and total sale amount of all his products  
 with a sale amount larger than 3 and arrange them for higher amount to lower amount. */
